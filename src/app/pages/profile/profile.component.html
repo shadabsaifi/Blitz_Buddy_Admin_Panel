@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="profilePage"></div>
+<div class="layout-content">
+ <div class="row gutter-xs">
+    <div class="profile-box">
+        <div class="card text-center">
+          <div class="card-image">
+            <div class="overlay">
+              <div class="overlay-gradient">
+                <img class="card-img-top img-responsive" src="assets/img/7808910503.jpg" alt="Instagram App">
+              </div>
+            </div>
+          </div>
+          <div class="card-avatar">
+            <a class="card-thumbnail rounded sq-100" href="#">
+              <img class="img-responsive" src="assets/img/8447261358.jpg" alt="Instagram">
+            </a>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">{{ data.fullName }}</h3>
+            <p class="card-text">
+              <span class="app-users">
+               <span class="icon icon-map-marker"></span>
+               <strong>City</strong>: {{ data.city }}
+              </span>
+            </p>
+            <p class="card-text">
+              <span class="app-users">
+               <span class="icon icon-map-marker"></span>
+               <strong>Email</strong>: {{ data.email }}
+              </span>
+            </p>
+            <p class="card-text">
+              <span class="app-users">
+               <span class="icon icon-phone"></span>
+               <strong>Phone</strong>: {{ data.phone }}
+              </span>
+            </p>
+            <p class="card-text">{{ data.description }}</p>
+            <div class="col-md-12 text-center">
+               <a [routerLink]="['/edit-profile']" class="">       
+                <button class="btn btn-primary btn-sm" type="button">Edit profile</button> 
+               </a>
+               <a [routerLink]="['/change-password']">       
+                  <button class="btn btn-primary btn-sm" type="button">Change Password</button> 
+                </a>
+           </div>
+          </div>
+        </div>
+      </div>
+ </div>
+</div>
+
+<!-- </div> -->
+<app-footer></app-footer>

@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="profilePage"></div>
+<div class="layout-content">
+  <div class="layout-content-body">
+    <div class="title-bar">
+      <h1 class="title-bar-title">
+        <span class="d-ib">Edit Admin Profile /</span>
+        <a [routerLink]="['/profile']">Back to list</a>
+      </h1>
+    </div>
+    <div class="row gutter-xs">
+      <div class="col-md-8 card panel-body" style="box-shadow: 0px 0px 14px #999;">
+        <div class="col-sm-12 col-md-12">
+          <div class="demo-form-wrapper">
+            <form class="form form-horizontal" [formGroup]="editProfileForm">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <label class=" control-label">Name</label>
+                  <input id="" class="form-control" formControlName="fullName" type="text">
+                  <p *ngIf="editProfileForm.get('fullName').hasError('required') && editProfileForm.get('fullName').dirty">*Name
+                    required</p>
+                </div>
+                <div class="col-md-6">
+                  <label class=" control-label">Mobile</label>
+                  <input id="" class="form-control" formControlName="phone" type="text">
+                  <p *ngIf="editProfileForm.get('phone').hasError('required') && editProfileForm.get('phone').dirty">*Mobile
+                    number required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6 add-pic">
+                  <label class=" control-label">Add Images</label>
+                  <div class="pic-box">
+                    <div class="logoImg">
+                      <img src="{{ editProfileForm.get('image').value}}" id="result">
+                      <input id="logo-file" type="file" (change)="onImageChange($event)" class="hide">
+                      <label for="logo-file" class="btn btn-large"></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6">
+                  <label class=" control-label">Email ID</label>
+                  <input id="" class="form-control" type="text" formControlName="email">
+                  <p *ngIf="editProfileForm.get('email').hasError('required') && editProfileForm.get('email').dirty">*Name
+                    required</p>
+                  <p *ngIf="editProfileForm.get('email').hasError('pattern') && editProfileForm.get('email').dirty">*Invalid
+                    email</p>
+                </div>
+                <div class="col-md-6">
+                  <label class=" control-label">City</label>
+                  <input id="" class="form-control" formControlName="city" type="text">
+                  <p *ngIf="editProfileForm.get('city').hasError('required') && editProfileForm.get('city').dirty">*City
+                    required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label for="about" class=" control-label">Description</label>
+                  <textarea id="" class="form-control" formControlName="description" rows="3" maxlength="500"></textarea>
+                  <p *ngIf="editProfileForm.get('description').hasError('required') && editProfileForm.get('description').dirty">*Description
+                    required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class=" col-sm-8  col-md-8 ">
+                  <button class="btn btn-primary" [disabled]="!editProfileForm.valid" (click)="editProfile()" type="submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

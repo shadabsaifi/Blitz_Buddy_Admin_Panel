@@ -1,0 +1,33 @@
+<div class="login">
+  <div class="login-body">
+    <a class="login-brand" href="#">
+      <img class="img-responsive" src="assets/img/logo-blk.png" alt="logo">
+    </a>
+    <div class="login-form">
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" class="form-control" formControlName="email" type="email" name="email" spellcheck="false" autocomplete="off" maxlength="52">
+          <p *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').dirty">*Email required</p>
+          <p *ngIf="loginForm.get('email').hasError('pattern') && loginForm.get('email').dirty">*Invalid Email</p>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" class="form-control" formControlName="password" type="password" name="password" maxlength="16" data-msg-minlength="Password must be 6 characters or more." data-msg-required="Please enter your password." required>
+          <p *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').dirty">*Password required</p>          
+          <p *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').dirty">*Password should be greater then 8 character's</p>                  
+        </div>
+        <div class="form-group">
+          <label class="custom-control custom-control-primary custom-checkbox">
+            <input class="custom-control-input" type="checkbox" (change)="select($event)" id="chkSelect" checked="checked">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-label">Keep me signed in</span>
+          </label>
+          <span aria-hidden="true"> · </span>
+          <a [routerLink]="['/forgot-password']">Forgot password?</a>
+        </div>
+        <button class="btn btn-primary btn-block" [disabled]="!loginForm.valid" (click)="login()" type="submit">Sign in</button>
+      </form>
+    </div>
+  </div>
+</div>
