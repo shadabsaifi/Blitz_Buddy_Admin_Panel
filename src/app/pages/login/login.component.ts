@@ -29,22 +29,25 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    this.service.showSpinner();
     if(this.isChecked){
-      localStorage.setItem('email', this.loginForm.value.email)
-      localStorage.setItem('password', this.loginForm.value.password)
+      localStorage.setItem('email', this.loginForm.value.email);
+      localStorage.setItem('password', this.loginForm.value.password);
     }
     this.service.post('login', this.loginForm.value, 0).subscribe(res=>{
+      this.service.hideSpinner();
       if(res['responseCode'] == 200){
         this.service.success(res['responseMessage']);
-        localStorage.setItem('adminId', res['result']._id)
-        localStorage.setItem('token', res['result'].token)
+        localStorage.setItem('adminId', res['result']._id);
+        localStorage.setItem('token', res['result'].token);
         this.service.navigatePage('dashboard');
       }
       else{
-        this.service.error(res['responseMessage'])
+        this.service.elsePart(res['responseCode'], res['responseMessage']);
       }
     }, err=>{
-      this.service.error(err.error['responseMessage']);
+      this.service.hideSpinner();
+        return this.service.serverError();
     })
   }
 

@@ -28,18 +28,26 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   changePassword(){
+    this.service.showSpinner();
     delete this.changePasswordForm.value.confPassword;
     this.changePasswordForm.value['adminId'] = this.adminId;
     this.service.post('changePassword', this.changePasswordForm.value, 0).subscribe(res=>{
+      this.service.hideSpinner();
       if(res['responseCode'] == 200){
         this.service.success(res['responseMessage']);
         this.service.navigatePage('profile');
       }
+      else if(res['responseCode'] == 404 || res['responseCode'] == 401){
+        this.service.error(res['responseMessage'])
+        this.service.navigatePage('login');
+      }
       else{
         this.service.error(res['responseMessage'])
       }
+      
     }, err=>{
-      this.service.error(err.error['responseMessage']);
+      this.service.hideSpinner();
+      this.service.serverError();
     })
   }
 

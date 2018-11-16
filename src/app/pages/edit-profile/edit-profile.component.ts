@@ -30,18 +30,19 @@ export class EditProfileComponent implements OnInit {
   }
 
   getAdminDetail(){
-    this.service.get('getAdminDetail?adminId='+this.adminId, 0).subscribe(res=>{
+    this.service.get('getAdminDetail?adminId='+this.adminId, 1).subscribe(res=>{
       if(res['responseCode'] == 200){
         this.data = res['result'];
         this.editProfileForm.patchValue(this.data);
         console.log("this.edit====>>>>>"+JSON.stringify(this.editProfileForm.value));
       }
-      else if(res['responseCode'] == 404){
+      else if(res['responseCode'] == 404 || res['responseCode'] == 401){
         this.service.error(res['responseMessage'])
         this.service.navigatePage('login');
       }
-      else
+      else{
         this.service.error(res['responseMessage'])
+      }
 
     }, err=>{
       this.service.error(err.error['responseMessage'])
@@ -72,24 +73,22 @@ editProfile(){
   this.service.showSpinner();
   this.editProfileForm.value['adminId'] = this.adminId;
   this.service.post('editAdminProfile', this.editProfileForm.value, 0).subscribe(res=>{
+    this.service.hideSpinner();
     if(res['responseCode'] == 201){
-      this.service.hideSpinner();
       this.service.success(res['responseMessage']);
       this.service.navigatePage('profile');
 
     }
-    else if(res['responseCode'] == 404){
-      this.service.hideSpinner();
-      this.service.error(res['responseMessage']);
+    else if(res['responseCode'] == 404 || res['responseCode'] == 401){
+      this.service.error(res['responseMessage'])
       this.service.navigatePage('login');
     }
     else{
-      this.service.hideSpinner();
-      this.service.error(res['responseMessage']);
+      this.service.error(res['responseMessage'])
     }
   }, err=>{
     this.service.hideSpinner();
-    this.service.error(err.error['responseMessage']);
+    this.service.serverError();
   })
 }
 

@@ -15,21 +15,26 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.adminId = localStorage.getItem('adminId');
     this.getAdminDetail();
-    console.log("adminId=====>>>>", this.adminId)
   }
 
   getAdminDetail(){
-    this.service.get('getAdminDetail?adminId='+this.adminId, 0).subscribe(res=>{
+    this.service.showSpinner();
+    this.service.get('getAdminDetail?adminId='+this.adminId, 1).subscribe(res=>{
+      this.service.hideSpinner();
       if(res['responseCode'] == 200){
         this.data = res['result'];
       }
-      else if(res['responseCode'] == 404){
+      else if(res['responseCode'] == 404 || res['responseCode'] == 401){
         this.service.error(res['responseMessage'])
         this.service.navigatePage('login');
       }
+      else{
+        this.service.error(res['responseMessage'])
+      }
 
     }, err=>{
-      this.service.error(err.error['responseMessage'])
+      this.service.hideSpinner();
+      this.service.serverError();
     })
   }
 

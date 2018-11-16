@@ -41,7 +41,7 @@
             </button>
             <ul class="nav navbar-nav navbar-right">
               
-              <li class="dropdown">
+              <!-- <li class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true">
                   <span class="icon-with-child hidden-xs">
                     <span class="icon icon-bell-o icon-lg"></span>
@@ -164,7 +164,7 @@
                     <a class="dropdown-btn" href="#">See All</a>
                   </div>
                 </div>
-              </li>
+              </li> -->
               <li class="dropdown hidden-xs">
                 <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
                   <img class="rounded" width="36" height="36" src="{{ data.image }}" alt="Teddy Wilson"> {{ data.fullName }}
@@ -172,14 +172,8 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li><a [routerLink]="['/profile']">Profile</a></li>
-                  <li><a [routerLink]="['/login']">Sign out</a></li>
+                  <li><a (click)="signout()">Sign out</a></li>
                 </ul>
-              </li>
-              <li class="visible-xs-block">
-                <a [routerLink]="['/contact']">
-                  <span class="icon icon-users icon-lg icon-fw"></span>
-                  Contacts
-                </a>
               </li>
               <li class="visible-xs-block">
                 <a [routerLink]="['/profile']">
@@ -198,38 +192,4 @@
         </div>
       </div>
     </div>
-    <div class="layout-main">
-      <div class="layout-sidebar">
-        <div class="layout-sidebar-backdrop"></div>
-        <div class="layout-sidebar-body">
-          <div class="custom-scrollbar">
-            <nav id="sidenav" class="sidenav-collapse collapse">
-              <ul class="sidenav">
-                <li class="sidenav-heading">Navigation</li>
-                <li class="sidenav-item dashboardPageNav" [ngClass]="{ active: isActive == 'dashboard' }">
-                  <a [routerLink]="['/dashboard']" aria-haspopup="true">
-                    <span class="sidenav-icon icon icon-home"></span>
-                    <span class="sidenav-label">Dashboard</span>
-                  </a>
-                </li>
-                <li class="sidenav-item profilePageNav" [ngClass]="{ active: isActive == 'profile' }">
-                  <a [routerLink]="['/profile']" aria-haspopup="true">
-                    <span class="sidenav-icon icon icon-user"></span>
-                    <span class="sidenav-label">Profile</span>
-                  </a>
-                </li>
-                <li class="sidenav-item has-subnav accountNav">
-                  <a href="#" aria-haspopup="true" aria-expanded="true">
-                    <span class="sidenav-icon icon icon-users"></span>
-                    <span class="sidenav-label">Account management</span>
-                  </a>
-                  <ul class="sidenav-subnav collapse" aria-expanded="true" style="">
-                    <li class="accNav-a"><a href="user-list.php">User List</a></li>
-                  </ul>
-                </li>
-                
-            </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
+    <app-side-menu></app-side-menu>

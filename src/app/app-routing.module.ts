@@ -26,7 +26,7 @@ const routes: Routes = [
   { path:'footer', component:FooterComponent },
   { path:'profile', component:ProfileComponent },
   { path:'forgot-password', component:ForgotPasswordComponent },
-  { path:'reset-password', component:ResetPasswordComponent },
+  { path:'reset-password/:adminId/:secureKey', component:ResetPasswordComponent },
   { path:'user',
     children:[{
            path:'',

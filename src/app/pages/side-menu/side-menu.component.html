@@ -1,3 +1,35 @@
-<p>
-  side-menu works!
-</p>
+<div class="layout-main">
+  <div class="layout-sidebar">
+    <div class="layout-sidebar-backdrop"></div>
+    <div class="layout-sidebar-body">
+      <div class="custom-scrollbar">
+        <nav id="sidenav" class="sidenav-collapse collapse">
+          <ul class="sidenav">
+            <li class="sidenav-heading">Navigation</li>
+            <li class="sidenav-item dashboardPageNav" [ngClass]="{ active: isActive == 'dashboard' }">
+              <a [routerLink]="['/dashboard']" aria-haspopup="true">
+                <span class="sidenav-icon icon icon-home"></span>
+                <span class="sidenav-label">Dashboard</span>
+              </a>
+            </li>
+            <li class="sidenav-item profilePageNav" [ngClass]="{ active: isActive == 'profile' || isActive == 'edit-profile' || isActive == 'change-password' }">
+              <a [routerLink]="['/profile']" aria-haspopup="true">
+                <span class="sidenav-icon icon icon-user"></span>
+                <span class="sidenav-label">Profile</span>
+              </a>
+            </li>
+            <li class="sidenav-item has-subnav accountNav">
+              <a href="#" aria-haspopup="true" aria-expanded="true">
+                <span class="sidenav-icon icon icon-users"></span>
+                <span class="sidenav-label">Account management</span>
+              </a>
+              <ul class="sidenav-subnav collapse" aria-expanded="true" style="">
+                <li class="accNav-a"><a href="user-list.php">User List</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
