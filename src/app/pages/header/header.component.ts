@@ -10,7 +10,6 @@ export class HeaderComponent implements OnInit {
 
   adminId:any
   data:any = {  }
-  isActive:any
   constructor(private service:ServiceService) { 
 
   }
@@ -18,7 +17,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
 
     this.adminId = localStorage.getItem('adminId');
-    this.isActive = window.location.href.split('/')[3];
     this.getAdminDetail();
     
   }

@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideMenuComponent implements OnInit {
 
+  isActive:any
   constructor() { }
 
   ngOnInit() {
+
+    this.isActive = window.location.href.split('/')[3];
   }
 
 }
