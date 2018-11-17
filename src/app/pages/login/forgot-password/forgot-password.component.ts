@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../../service/service.service';
+import { ServiceService } from '../../../service/service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -20,7 +20,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   forgotPassword(){
     this.service.showSpinner();
-    this.forgotPasswordForm.value['link'] = "http://localhost:4200/reset-password/";
+    this.forgotPasswordForm.value['link'] = "http://localhost:4200/login/reset-password/";
     this.service.post('forgotPassword', this.forgotPasswordForm.value, 0).subscribe(res=>{
       this.service.hideSpinner();
       if(res['responseCode'] == 200){

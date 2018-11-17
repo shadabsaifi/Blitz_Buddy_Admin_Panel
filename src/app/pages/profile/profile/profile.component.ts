@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../../service/service.service';
+import { ServiceService } from '../../../service/service.service';
 
 @Component({
   selector: 'app-profile',
@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getAdminDetail(){
+    
     this.service.showSpinner();
     this.service.get('getAdminDetail?adminId='+this.adminId, 1).subscribe(res=>{
       this.service.hideSpinner();

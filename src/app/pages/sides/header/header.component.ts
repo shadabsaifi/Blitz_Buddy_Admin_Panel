@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../../service/service.service';
+import { ServiceService } from '../../../service/service.service';
 
 @Component({
   selector: 'app-header',
@@ -30,8 +30,6 @@ export class HeaderComponent implements OnInit {
       else{
         this.service.elsePart(res['responseCode'], res['responseMessage']);
       }
-
-
     }, err=>{
       this.service.serverError();
     })

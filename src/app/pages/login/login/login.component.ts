@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../../service/service.service';
+import { ServiceService } from '../../../service/service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var $:any
 @Component({

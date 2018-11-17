@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../../service/service.service';
+import { ServiceService } from '../../../service/service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ng2ImgMaxService } from 'ng2-img-max';
 
@@ -91,7 +91,5 @@ editProfile(){
     this.service.serverError();
   })
 }
-
-
 
 }
