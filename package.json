@@ -23,6 +23,7 @@
     "core-js": "^2.5.4",
     "ng2-img-max": "^2.1.18",
     "ng4-loading-spinner": "^1.2.3",
+    "ngx-pagination": "^3.2.1",
     "ngx-spinner": "^6.1.2",
     "ngx-toastr": "^9.1.1",
     "rxjs": "^6.0.0",

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ServiceService } from './service/service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BlitzBuddyAdmin';
+
+  constructor(private service:ServiceService){
+
+  }
+
+  ngOnInit(){
+
+    var adminId = localStorage.getItem('adminId');
+    var token = localStorage.getItem('token');
+    if(!adminId || !token){
+      this.service.elsePart(404 , "Invalid Token");
+    }
+
+  }
+
 }

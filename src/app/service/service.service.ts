@@ -44,12 +44,12 @@ export class ServiceService {
   }
 
   error(msg){
-    this.toastr.error(msg, "", {
+    this.toastr.error(msg, '', {
       timeOut: 900 });
   }
 
   serverError(){
-    this.toastr.error('Server not responding.');
+    this.toastr.error('Something went wrong.');
   }
 
   showSpinner(){

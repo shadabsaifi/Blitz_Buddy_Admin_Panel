@@ -18,6 +18,12 @@
                 <span class="sidenav-label">Profile</span>
               </a>
             </li>
+            <li class="sidenav-item profilePageNav" [ngClass]="{ active: isActive == 'user' }">
+              <a [routerLink]="['/user']" aria-haspopup="true">
+                <span class="sidenav-icon icon icon-user"></span>
+                <span class="sidenav-label">User Management</span>
+              </a>
+            </li>
             <li class="sidenav-item has-subnav accountNav">
               <a href="#" aria-haspopup="true" aria-expanded="true">
                 <span class="sidenav-icon icon icon-users"></span>
@@ -27,7 +33,6 @@
                 <li class="accNav-a"><a href="user-list.php">User List</a></li>
               </ul>
             </li>
-
           </ul>
         </nav>
       </div>
