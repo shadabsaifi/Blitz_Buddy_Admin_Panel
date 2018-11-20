@@ -1,29 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../../service/service.service';
+import { ServiceService } from '../../../service/service.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-static-management',
+  templateUrl: './static-management.component.html',
+  styleUrls: ['./static-management.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class StaticManagementComponent implements OnInit {
 
   data:any = { }
-  constructor(private service:ServiceService) { }
+  constructor(private service:ServiceService) {  }
 
   ngOnInit() {
-
-    this.totalCount();
-    
+    this.getStaticContent();
   }
 
+  getStaticContent(){
 
-  totalCount(){
     this.service.showSpinner();
-    this.service.get('totalCount', 1).subscribe(res=>{
+    this.service.get('getAllStaticContent', 1).subscribe(res=>{
       this.service.hideSpinner();
       if(res['responseCode'] == 200){
         this.data = res['result'];
+        console.log('====================================');
+        console.log(this.data);
+        console.log('====================================');
       }
       else if(res['responseCode'] == 404 || res['responseCode'] == 401){
         this.service.error(res['responseMessage'])
@@ -38,5 +39,7 @@ export class DashboardComponent implements OnInit {
       this.service.serverError();
     })
   }
+
+  
 
 }

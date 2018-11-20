@@ -72,7 +72,7 @@ export class EditProfileComponent implements OnInit {
 editProfile(){
   this.service.showSpinner();
   this.editProfileForm.value['adminId'] = this.adminId;
-  this.service.post('editAdminProfile', this.editProfileForm.value, 0).subscribe(res=>{
+  this.service.post('editAdminProfile', this.editProfileForm.value, 1).subscribe(res=>{
     this.service.hideSpinner();
     if(res['responseCode'] == 201){
       this.service.success(res['responseMessage']);

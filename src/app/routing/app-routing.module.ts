@@ -9,6 +9,8 @@ import { ResetPasswordComponent } from '../pages/login/reset-password/reset-pass
 import { DashboardComponent } from '../pages/dashboard/dashboard.component';
 import { UserManagementComponent } from '../pages/user/user-management/user-management.component';
 import { ForgotPasswordComponent } from '../pages/login/forgot-password/forgot-password.component';
+import { StaticManagementComponent } from '../pages/staic/static-management/static-management.component';
+import { EditContentComponent } from '../pages/staic/edit-content/edit-content.component';
 
 const routes: Routes = [
 
@@ -31,6 +33,13 @@ const routes: Routes = [
   { path: 'user',
     children: [
       { path: '', component: UserManagementComponent }
+  ]},
+
+
+  { path: 'static',
+    children: [
+      { path: '', component: StaticManagementComponent },
+      { path: 'edit-content', component: EditContentComponent }
   ]},
 
   { path: '**', component: PageNotFoundComponent }

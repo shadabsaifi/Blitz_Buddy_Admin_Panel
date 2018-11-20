@@ -20,19 +20,29 @@
             </li>
             <li class="sidenav-item profilePageNav" [ngClass]="{ active: isActive == 'user' }">
               <a [routerLink]="['/user']" aria-haspopup="true">
-                <span class="sidenav-icon icon icon-user"></span>
+                <span class="sidenav-icon icon icon-users"></span>
                 <span class="sidenav-label">User Management</span>
               </a>
             </li>
-            <li class="sidenav-item has-subnav accountNav">
-              <a href="#" aria-haspopup="true" aria-expanded="true">
+            <li class="sidenav-item profilePageNav" [ngClass]="{ active: isActive == 'static' }">
+              <a [routerLink]="['/static']" aria-haspopup="true">
+                <span class="sidenav-icon icon icon-users"></span>
+                <span class="sidenav-label">Static Content Management</span>
+              </a>
+            </li>
+            <!-- <li class="sidenav-item has-subnav accountNav" [ngClass]="{open : (toggle == 0) ? false : true }" (click)="(toggle == 0) ? toggle = 1 : toggle = 0">
+              <a aria-haspopup="true" aria-expanded="true">
                 <span class="sidenav-icon icon icon-users"></span>
                 <span class="sidenav-label">Account management</span>
               </a>
-              <ul class="sidenav-subnav collapse" aria-expanded="true" style="">
-                <li class="accNav-a"><a href="user-list.php">User List</a></li>
+              <ul class="sidenav-subnav collapse" [ngClass]="{in : (toggle == 0) ? false : true}" aria-expanded="true"
+                style="">
+                <li class="accountNav-a"><a routerLink="/sellers?/chat">Seller
+                    List</a></li>
+                <li class="accountNav-b"><a routerLink="/drivers?/chat">Driver
+                    List</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </nav>
       </div>

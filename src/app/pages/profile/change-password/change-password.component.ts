@@ -31,7 +31,7 @@ export class ChangePasswordComponent implements OnInit {
     this.service.showSpinner();
     delete this.changePasswordForm.value.confPassword;
     this.changePasswordForm.value['adminId'] = this.adminId;
-    this.service.post('changePassword', this.changePasswordForm.value, 0).subscribe(res=>{
+    this.service.post('changePassword', this.changePasswordForm.value, 1).subscribe(res=>{
       this.service.hideSpinner();
       if(res['responseCode'] == 200){
         this.service.success(res['responseMessage']);

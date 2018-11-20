@@ -21,9 +21,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import {NgxPaginationModule} from 'ngx-pagination'
-
-
+import {NgxPaginationModule} from 'ngx-pagination';
+import { StaticManagementComponent } from './pages/staic/static-management/static-management.component'
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { EditContentComponent } from './pages/staic/edit-content/edit-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,9 @@ import {NgxPaginationModule} from 'ngx-pagination'
     SideMenuComponent,
     DashboardComponent,
     UserManagementComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    StaticManagementComponent,
+    EditContentComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import {NgxPaginationModule} from 'ngx-pagination'
     ToastrModule.forRoot(),
     Ng2ImgMaxModule,
     NgxSpinnerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
